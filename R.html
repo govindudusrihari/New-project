@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Template</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            overflow: hidden; /* Prevent scroll bars due to background */
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            animation: rainbow 15s ease-in-out infinite; /* Animate rainbow colors */
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.8); /* White with semi-transparency */
+            padding: 20px;
+            border-radius: 5px;
+            color: #333; /* Dark text */
+        }
+
+        h1 {
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Rainbow Website Template</h1>
+            <p>Explore a world of colorful possibilities! This template provides a vibrant base for your website's design, while the dynamic background adds an eye-catching touch. Feel free to personalize the content and adjust the colors to match your project's theme. </p>
+        </div>
+    </div>
+</body>
+</html>
