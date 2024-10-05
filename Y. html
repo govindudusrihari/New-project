@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Template</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif; /* Changed font to Arial */
+            overflow: hidden;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            animation: rainbow 15s ease-in-out infinite;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px 50px; /* Increased padding for more space */
+            border-radius: 10px; /* Rounded corners */
+            color: #333;
+        }
+
+        h1 {
+            font-size: 3em; /* Larger heading */
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            line-height: 1.6; /* Adjust line spacing */
+        }
+
+        .call-to-action {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(to right, #00c6ff, #0072ff); /* Blue gradient */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s ease; /* Smooth transition on hover */
+        }
+
+        .call-to-action:hover {
+            opacity: 0.8; /* Fade slightly on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Welcome to the Rainbow</h1>
+            <p>Immerse yourself in a vibrant world of creativity! This template provides a stunning canvas for your project. Its captivating rainbow background adds a delightful twist, while its user-friendly structure makes it easy to showcase your ideas. </p>
+            <a href="#" class="call-to-action">Explore Now</a> </div>
+    </div>
+</body>
+</html>
