@@ -1,0 +1,51 @@
+import os
+import json
+from google.api_core.client_options import ClientOptions
+from google.cloud import aiplatform
+from google.cloud.aiplatform.gapic.schema.predict.instance import Instance
+
+# Set environment variables for API key and project ID
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'your_service_account_key.json'  # Replace with your service account key file path
+os.environ['PROJECT_ID'] = 'your_gcp_project_id'  # Replace with your GCP project ID
+
+# Set endpoint for Gemini API (replace with your desired region)
+endpoint = 'us-central1-aiplatform.googleapis.com'
+
+# Create an AIPlatform client
+aiplatform.init(
+    project=os.environ['PROJECT_ID'],
+    location='us-central1',  # Set your desired region
+    client_options=ClientOptions(api_endpoint=endpoint)
+)
+
+# Define the Gemini model name (replace with your desired model)
+model_name = 'projects/<your_project_id>/locations/<your_location>/models/<your_gemini_model_id>'
+
+# Function to generate response from Gemini
+def generate_response(prompt):
+    """
+    Generates response from the Gemini model using the AIPlatform API.
+
+    Args:
+        prompt: The text prompt for the model.
+
+    Returns:
+        A dictionary containing the response text.
+    """
+
+    instance = Instance(text=prompt)
+    response = aiplatform.gapic.EndpointServiceClient.predict(
+        endpoint=model_name,
+        instances=[instance]
+    )
+
+    # Extract the response text
+    response_text = response.predictions[0]['text']
+
+    return {'response': response_text}
+
+
+# Example usage:
+prompt = "Write a short story about a cat who can talk."
+response = generate_response(prompt)
+print(f"Response: {response['response']}")
